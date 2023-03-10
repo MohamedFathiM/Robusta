@@ -9,7 +9,7 @@
 ### Clone Project
 
 ```sh
-https://github.com/MohamedFathiM/Robusta.git
+git clone https://github.com/MohamedFathiM/Robusta.git
 ```
 
 ### Install Using Sail
