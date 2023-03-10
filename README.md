@@ -2,7 +2,7 @@
 
 ## DB Structure
 
-<div><img src="/Docs/db.png" alt="Data Structure Diagram"><div>
+<div><img src="/public/Docs/db.png" alt="Data Structure Diagram"><div>
 
 ## Setup Project
 
