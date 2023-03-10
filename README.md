@@ -15,9 +15,15 @@ git clone https://github.com/MohamedFathiM/Robusta.git
 ### Install Using Sail
 
 ```sh
+composer install
+composer run setup
 ./vendor/bin/sail up
 ./vendor/bin/sail artisan migrate:fresh --seed
 ```
+
+### Application Run On
+
+http://0.0.0.0:8080/
 
 ### Login Data
 
