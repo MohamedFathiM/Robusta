@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "10c125e3-24be-4803-a461-60a94b0e8bed",
+		"name": "Robusta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9020807"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Mohamed Fathi",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mohamedkdr66@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Aa@123456789",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Aa@123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = pm.response.json();",
+									"if(res.data && res.data._token)",
+									"    pm.environment.set(\"token\", res.data._token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "mohamedkdr66@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Aa@123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trips",
+			"item": [
+				{
+					"name": "List Trips",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/trips",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "source",
+									"value": "Cairo",
+									"type": "text"
+								},
+								{
+									"key": "destination",
+									"value": "Asyut",
+									"type": "text"
+								},
+								{
+									"key": "stations[]",
+									"value": "AlFayyum",
+									"type": "text"
+								},
+								{
+									"key": "stations[]",
+									"value": "AlMinya",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/trips",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seats",
+			"item": [
+				{
+					"name": "Free Seats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/empty_seats",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"empty_seats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Seat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "seat_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "station_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/book_seat",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"book_seat"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
